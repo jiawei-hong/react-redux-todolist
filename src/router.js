@@ -6,6 +6,7 @@ import {
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
 import CreateTodo from "./components/CreateTodo";
+import UpdateTodo from './components/UpdateTodo';
 
 
 export default function AppRouter() {
@@ -20,6 +21,10 @@ export default function AppRouter() {
 
                 <Route path="/createTodo" exact>
                     <CreateTodo/>
+                </Route>
+
+                <Route path="/updateTodo/:index" exact>
+                    <UpdateTodo/>
                 </Route>
 
                 <Route path="*">Not Found</Route>
