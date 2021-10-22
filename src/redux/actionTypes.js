@@ -2,3 +2,4 @@ export const SET_TODOS = 'SET_TODOS';
 export const ADD_TODO = 'ADD_TODO';
 export const UPDATE_TODO_WITH_INDEX = 'UPDATE_TODO_WITH_INDEX';
 export const DELETE_TODO_WITH_INDEX = 'DELETE_TODO_WITH_INDEX';
+export const SET_SEARCH_TEXT = 'SET_SEARCH_TEXT';

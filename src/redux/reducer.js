@@ -1,4 +1,4 @@
-import {SET_TODOS, ADD_TODO, UPDATE_TODO_WITH_INDEX, DELETE_TODO_WITH_INDEX} from "./actionTypes";
+import {SET_TODOS, ADD_TODO, UPDATE_TODO_WITH_INDEX, DELETE_TODO_WITH_INDEX, SET_SEARCH_TEXT} from "./actionTypes";
 
 function setTodos(state, action) {
     return {...state, todos: action.todos};
@@ -28,6 +28,10 @@ function deleteTodo(state, action) {
     return {...state, todos};
 }
 
+function setSearchText(state, action) {
+    return {...state, searchText: action.text};
+}
+
 export const reducer = (state, action) => {
     switch (action.type) {
         case SET_TODOS:
@@ -38,6 +42,8 @@ export const reducer = (state, action) => {
             return updateTodo(state, action)
         case DELETE_TODO_WITH_INDEX:
             return deleteTodo(state, action)
+        case SET_SEARCH_TEXT:
+            return setSearchText(state, action)
         default:
             return state;
     }

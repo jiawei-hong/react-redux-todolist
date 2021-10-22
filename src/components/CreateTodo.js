@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {connect} from "react-redux";
+import {useHistory} from "react-router-dom";
 import {addTodo} from "../redux/actions";
 
 function CreateTodo(props) {
@@ -8,12 +9,14 @@ function CreateTodo(props) {
         description: '',
         completed: false
     });
+    let history = useHistory();
 
     function createTodo() {
         if (todo.name.length === 0 || todo.description.length === 0) {
             alert('Not Pass Validation');
         } else {
             props.addTodo(todo);
+            history.push('/');
         }
     }
 
@@ -27,7 +30,7 @@ function CreateTodo(props) {
                         </label>
                         <input
                             onChange={e => setTodo({...todo, name: e.target.value})}
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
                             id="name" type="text" placeholder="Name"/>
                     </div>
 
@@ -37,7 +40,7 @@ function CreateTodo(props) {
                         </label>
                         <input
                             onChange={e => setTodo({...todo, description: e.target.value})}
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
                             id="description" type="text" placeholder="Description"/>
                     </div>
 
